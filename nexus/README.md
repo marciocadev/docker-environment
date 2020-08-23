@@ -23,3 +23,7 @@ Demora um tempo até que o container se inicie, espere uns minutos
 
 # Plug-in para APK
 * https://github.com/sonatype-nexus-community/nexus-repository-apk
+
+# Cria os repositórios
+* create-repository.sh <host> <port>
+    ex.: create-repository.sh 192.168.15.13 8081

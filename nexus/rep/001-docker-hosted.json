@@ -1,0 +1,16 @@
+{
+    "repType": "docker",
+    "repSubType": "hosted",
+    "name": "docker-hosted",
+    "online": true,
+    "storage": {
+      "blobStoreName": "default",
+      "strictContentTypeValidation": true,
+      "writePolicy": "allow"
+    },
+    "docker": {
+      "v1Enabled": true,
+      "forceBasicAuth": true,
+      "httpPort": 8083
+    }
+  }
