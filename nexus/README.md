@@ -5,12 +5,7 @@
 
 Demora um tempo até que o container se inicie, espere uns minutos
 
-# Obtenha o CONTAINER ID
-- docker ps
-    0cd5d3bf61b8 nexus3
-
 # Entre no container e pegue a senha iniciar do administrador
-* docker exec -it 7191939e2ca1  /bin/bash
 * docker-compose exec nexus bash
 * cd /nexus-data
 * cat admin.password
