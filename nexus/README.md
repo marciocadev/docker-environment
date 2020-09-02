@@ -28,12 +28,14 @@ Configuring your clients and projects to use your Nexus repos
 To interact with your repo, the first thing is to configure the Docker daemon in your machine to accept working with HTTP instead of HTTPS.
 
 How exactly to do this config depends on your operating system, so you should check dockerd documentation. On RHEL I did it putting this content in /etc/docker/daemon.json:
+<code>
 {
   "insecure-registries": [
-    "your-repo:8082",
-    "your-repo:8083"
+    "192.168.15.13:8082",
+    "192.168.15.13:8083"
   ]
 }
+</code>
 You have to restart the daemon after setting this (sudo systemctl restart docker).
 
 # Now we have to authenticate your machine to the repo with:
