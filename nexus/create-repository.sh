@@ -2,6 +2,8 @@
 
 host=$1
 port=$2
+user=$3
+pw=$4
 
 for jsonFile in ./rep/*
 do
@@ -11,6 +13,6 @@ do
 
     printf "Creating Integration API Script from $jsonFile\n\n"
 
-    curl -v -u admin:sofiA2011 --header "Content-Type: application/json" "http://$host:$port/service/rest/v1/repositories/$repType/$repSubType" -d @$jsonFile
+    curl -v -u $user:$pw --header "Content-Type: application/json" "http://$host:$port/service/rest/v1/repositories/$repType/$repSubType" -d @$jsonFile
 done
 

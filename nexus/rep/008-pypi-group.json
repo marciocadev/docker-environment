@@ -1,0 +1,17 @@
+{
+    "repType": "pypi",
+    "repSubType": "group",
+    "name": "pypi-group",
+    "online": true,
+    "storage": {
+      "blobStoreName": "default",
+      "strictContentTypeValidation": true
+    },
+    "group": {
+      "memberNames": [
+        "pypi-hosted",
+        "pypi-proxy"
+      ]
+    }
+  }
+  

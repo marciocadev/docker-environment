@@ -1,0 +1,31 @@
+version: '3.8'
+
+volumes:
+  nexus-data:
+    name: nexus-data
+  jenkins-data:
+    name: jenkins-data
+
+services:
+  nexus:
+    image: sonatype/nexus3:3.27.0
+    container_name: nexus3
+    restart: always
+    hostname: 'nexus3.marcio.com'
+    ports:
+      - '8081:8081'
+      - '8082:8082'
+      - '8083:8083'
+    volumes:
+      - 'nexus-data:/nexus-data'
+
+  gitlab:
+    image: jenkins/jenkins:2.235.5-lts-centos7
+    container_name: jenkins
+    restart: always
+    hostname: 'jenkins.marcio.com'
+    ports:
+      - '8100:8080'
+      - '50000:50000'
+    volumes:
+      - 'jenkins-data:/var/jenkins_home'
