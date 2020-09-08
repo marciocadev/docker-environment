@@ -5,6 +5,8 @@ volumes:
     name: nexus-data
   jenkins-data:
     name: jenkins-data
+  postgres-data:
+    name: postgres-data
 
 services:
   nexus:
@@ -19,7 +21,7 @@ services:
     volumes:
       - 'nexus-data:/nexus-data'
 
-  gitlab:
+  jenkins:
     image: jenkins/jenkins:2.235.5-lts-centos7
     container_name: jenkins
     restart: always
@@ -29,3 +31,26 @@ services:
       - '50000:50000'
     volumes:
       - 'jenkins-data:/var/jenkins_home'
+  
+  postgres:
+    image: postgres:13-alpine
+    container_name: postgres
+    restart: always
+    hostname: 'postgres.marcio.com'
+    environment:
+      POSTGRES_PASSWORD: admin2020
+    ports:
+      - '5432:5432'
+    volumes:
+      - 'postgres-data:/var/lib/postgresql/data'
+
+  pgadmin:
+    image: dpage/pgadmin4:4.25
+    container_name: pgadmin
+    restart: always
+    hostname: 'pgadmin.marcio.com'
+    environment:
+      PGADMIN_DEFAULT_PASSWORD: admin2020
+      PGADMIN_DEFAULT_EMAIL: marciocadev@gmail.com
+    ports:
+      - '15432:80'
